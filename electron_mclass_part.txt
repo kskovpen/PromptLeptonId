@@ -1,0 +1,123 @@
+treename: tree
+
+selection:
+   null
+
+new_variables:
+   null
+
+preprocess:   
+   method: manual
+   data_fraction: 1.0
+
+inputs:
+   pf_features:
+      length: 60
+      vars: 
+         - [PF_pt_log, -1.13, 1.159]
+         - [PF_charge, -0.011, 0.872]
+         - [PF_isElectron, -0.129, 0.335]
+         - [PF_isMuon, -0.008, 0.087]
+         - [PF_isNeutralHadron, -0.112, 0.315]
+         - [PF_isPhoton, -0.127, 0.333]
+         - [PF_isChargedHadron, -0.625, 0.484]
+         - [PF_fromPV, -1.721, 1.223]
+         - [PF_puppiWeightNoLep, -0.567, 0.478]
+         - [PF_hcalFraction, -0.529, 0.46]
+         - [PF_dzSig_log, 0.004, 4.213]
+         - [PF_dxySig_log, 0.003, 1.483]
+
+   pf_points:
+      length: 60
+      vars:
+         - [PF_eta_rel, 0, 1]
+         - [PF_phi_rel, 0, 1]
+
+   pf_vectors:
+      length: 60
+      vars:
+         - [PF_px, null]
+         - [PF_py, null]
+         - [PF_pz, null]
+         - [PF_energy, null]
+
+   pf_mask:
+      length: 60
+      vars:
+         - [PF_mask, 0, 1]
+
+   sv_features: 
+      length: 5
+      vars: 
+         - [SV_pt_log, -2.804, 1.006]
+         - [SV_mass_log, -0.263, 0.755]
+         - [SV_dlenSig_log, -1.862, 1.361]
+         - [SV_dxy_log, 1.711, 1.482]
+         - [SV_ndof, -2.26, 1.981]
+         - [SV_chi2, -2.432, 2.696]
+         - [SV_cospAngle, 0.957, 0.274]
+         - [SV_nTracks, -2.741, 1.047]
+
+   sv_points:
+      length: 5
+      vars:
+         - [SV_eta_rel, 0, 1]
+         - [SV_phi_rel, 0, 1]
+
+   sv_vectors:
+      length: 5
+      vars:
+         - [SV_px, null]
+         - [SV_py, null]
+         - [SV_pz, null]
+         - [SV_energy, null]
+
+   sv_mask:
+      length: 5
+      vars: 
+         - [SV_mask, 0, 1]
+
+   high_level:
+      length: 1
+      vars:
+         - [Lepton_pt_log, -3.414, 0.899]
+         - [Lepton_eta, -0.022, 1.359]
+         - [Lepton_dxy, 0.0, 0.008]
+         - [Lepton_dz, 0.0, 0.016]
+         - [Lepton_sip3d, -0.007, 2.756]
+         - [Lepton_jetPNet, -0.244, 0.32]
+         - [Lepton_jetPtRatio, -0.711, 0.241]
+         - [Lepton_jetNDauChargedMVASel, -2.129, 1.897]
+         - [Lepton_miniRelIsoNeutral_log, 13.142, 7.351]
+         - [Lepton_jetPtRelv2_log, -1.052, 2.73]
+         - [Lepton_miniRelIsoCharged_log, 11.405, 7.95]
+         - [Lepton_pfRelIso03_all_log, 6.105, 7.135]
+         - [Lepton_mvaId, -0.333, 0.906]
+         - [Lepton_passConversionVeto, -0.986, 0.117]
+         - [Lepton_eoverp_log, -0.314, 0.665]
+         - [Lepton_fbrem_log, -0.374, 0.331]
+         - [Lepton_dr03HcalDepth1TowerSumEt_Rel, -0.065, 0.117]
+         - [Lepton_supcl_phiWidth, -0.035, 0.029]
+         - [Lepton_supcl_etaWidth, -0.011, 0.007]
+         - [Lepton_sigmaiphiiphi, -0.023, 0.224]
+         - [Lepton_sigmaietaieta, -0.016, 0.224]
+         - [Lepton_e1x5bye5x5, -0.289, 0.158]
+         - [Lepton_r9full, -0.876, 0.222]
+         - [Lepton_hcaloverecal_log, 5.952, 6.094]
+         - [Lepton_dEtaInSeed, 0.0, 0.019]
+         - [Lepton_deltaetacltrkcalo, 0.0, 0.021]
+         - [Lepton_closeTrackNLayers, -9.907, 3.769]
+     
+labels: 
+   type: simple
+   value: [label_prompt_mclass, label_tau_mclass, label_heavy_mclass, label_light_mclass, label_fake_mclass]
+
+observers:
+   - label_prompt_mclass
+   - label_tau_mclass
+   - label_heavy_mclass
+   - label_light_mclass
+   - label_fake_mclass
+   - Lepton_pt_log
+   - Lepton_eta
+   - Lepton_lostHits

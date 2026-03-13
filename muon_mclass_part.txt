@@ -1,0 +1,110 @@
+treename: tree
+
+selection:
+   null
+
+new_variables:
+   null
+
+preprocess:   
+   method: manual
+   data_fraction: 1.0
+
+inputs:
+   pf_features:
+      length: 60
+      vars: 
+         - [PF_pt_log, -1.072, 1.135]
+         - [PF_charge, -0.008, 0.892]
+         - [PF_isElectron, -0.008, 0.088]
+         - [PF_isMuon, -0.162, 0.369]
+         - [PF_isNeutralHadron, -0.081, 0.273]
+         - [PF_isPhoton, -0.123, 0.329]
+         - [PF_isChargedHadron, -0.625, 0.484]
+         - [PF_fromPV, -1.699, 1.288]
+         - [PF_puppiWeightNoLep, -0.513, 0.481]
+         - [PF_hcalFraction, -0.578, 0.463]
+         - [PF_dzSig_log, -0.008, 4.426]
+         - [PF_dxySig_log, 0.007, 1.495]
+
+   pf_points:
+      length: 60
+      vars:
+         - [PF_eta_rel, 0, 1]
+         - [PF_phi_rel, 0, 1]
+
+   pf_vectors:
+      length: 60
+      vars:
+         - [PF_px, null]
+         - [PF_py, null]
+         - [PF_pz, null]
+         - [PF_energy, null]
+
+   pf_mask:
+      length: 60
+      vars:
+         - [PF_mask, 0, 1]
+
+   sv_features: 
+      length: 5
+      vars: 
+         - [SV_pt_log, -2.765, 0.903]
+         - [SV_mass_log, -0.356, 0.679]
+         - [SV_dlenSig_log, -2.073, 1.183]
+         - [SV_dxy_log, 1.809, 1.241]
+         - [SV_ndof, -2.26, 1.804]
+         - [SV_chi2, -2.427, 2.562]
+         - [SV_cospAngle, 0.98, 0.18]
+         - [SV_nTracks, -2.743, 0.957]
+
+   sv_points:
+      length: 5
+      vars:
+         - [SV_eta_rel, 0, 1]
+         - [SV_phi_rel, 0, 1]
+
+   sv_vectors:
+      length: 5
+      vars:
+         - [SV_px, null]
+         - [SV_py, null]
+         - [SV_pz, null]
+         - [SV_energy, null]
+
+   sv_mask:
+      length: 5
+      vars: 
+         - [SV_mask, 0, 1]
+
+   high_level:
+      length: 1
+      vars:
+         - [Lepton_pt_log, -3.205, 0.899]
+         - [Lepton_eta, 0.002, 1.189]
+         - [Lepton_dxy, 6.887, 1.538]
+         - [Lepton_dz, 6.075, 1.552]
+         - [Lepton_sip3d, -2.325, 2.128]
+         - [Lepton_segmentComp, -0.871, 0.178]
+         - [Lepton_jetPNet, -0.432, 0.38]
+         - [Lepton_jetPtRatio, -0.689, 0.25]
+         - [Lepton_jetNDauChargedMVASel, -2.107, 1.623]
+         - [Lepton_miniRelIsoNeutral_log, 12.799, 7.465]
+         - [Lepton_jetPtRelv2_log, -0.812, 3.176]
+         - [Lepton_miniRelIsoCharged_log, 11.973, 7.865]
+         - [Lepton_pfRelIso03_all_log, 6.177, 7.231]
+         - [Lepton_mvaId, -0.641, 0.169]
+     
+labels: 
+   type: simple
+   value: [label_prompt_mclass, label_tau_mclass, label_heavy_mclass, label_light_mclass, label_fake_mclass]
+
+observers:
+   - label_prompt_mclass
+   - label_tau_mclass
+   - label_heavy_mclass
+   - label_light_mclass
+   - label_fake_mclass
+   - Lepton_pt_log
+   - Lepton_eta
+   - Lepton_mediumId
